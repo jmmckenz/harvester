@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  cloudInit: |-
+    version: 2
+    ethernets:
+      eth0:
+        dhcp4: true
+        nameservers:
+          search: mclocal
+          addresses: [10.0.0.94, 8.8.8.8, 8.8.4.4]
+kind: ConfigMap
+metadata:
+  labels:
+    harvesterhci.io/cloud-init-template: network
+  name: standard-dhcp
+  namespace: default
+
